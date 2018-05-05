@@ -1,0 +1,103 @@
+<html ng-app="my-app">
+<div align="center"><h2> Statement Page</h2></div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="bankStatementApp.js"></script>
+   
+
+<body ng-controller="statementGenCntrl as stmtCntrl">
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td> <a href="login.html"> Login </a></td>
+                <td> <a href="goregistration.html"> Register </a></td>
+                <td> <a href="gohome.html"> Transaction </a></td>
+                <td> <a href="gobankStatementGeneration.html"> Statement </a></td>
+            </tr>
+          </table>  
+    </div>
+    
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td> From </td>
+                <td>
+                    <input type="date" name="from" ng-model="stmtCntrl.statement.from" /> 
+                    <span style="color:red" ng-show="login.user.password.$dirty &&login.user.password.$invalid">
+                        <span ng-show="login.user.password.$error.required">Password is required.</span>
+                    </span></td>
+                <td>To </td>
+                <td>
+                    <input type="date" name="to" ng-model="stmtCntrl.statement.to" />
+                    <span style="color:red" ng-show="login.user.password.$dirty &&login.user.password.$invalid">
+                        <span ng-show="login.user.password.$error.required">Password is required.</span>
+                    </span>
+                </td>
+                <td>Transaction Type </td>
+                <td>
+                    <select name="transactionType" ng-model="stmtCntrl.statement.transactionType">
+                        <option value="Saving">Saving</option>
+                        <option value="Salary">Salary</option>
+
+                    </select>
+                    <span style="color:red" ng-show="login.user.password.$dirty &&login.user.password.$invalid">
+                        <span ng-show="login.user.password.$error.required">Password is required.</span>
+                    </span>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td> Number of Transaction </td>
+                <td>
+                    <input type="text" name="transactionNo" ng-model="stmtCntrl.statement.transactionNo" /> </td>
+                <td> Policy Name </td>
+                <td>
+                    <input type="text" name="policyName" ng-model="stmtCntrl.statement.policyName" /> </td>
+                <td>
+                    <input type="button" name="View" value="View" ng-click="stmtCntrl.viewStatement(statement)" />
+                </td>
+                <td>
+                    <input type="button" name="Download" value="Download" ng-click="stmtCntrl.downloadCsv()"/>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td> Transaction Id </td>
+                <td>
+                    <input type="text" name="transactionId" ng-model="stmtCntrl.statement.transactionId" /> </td>
+
+            </tr>
+        </table>
+        </br>
+    </div>
+
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Transaction Date</th>
+                <th>Description</th>
+                <th>Debit\Credit</th>
+                <th>Balance</th>
+            </tr>
+
+
+
+            <tr ng-repeat="record in stmtCntrl.transactionList">
+                <td>{{record.transactionDate}}</td>
+                <td>{{record.transactioDesciption}}</td>
+                <td>{{record.transactionType}}</td>
+                <td>{{record.amount}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

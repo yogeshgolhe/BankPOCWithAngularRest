@@ -1,0 +1,93 @@
+<html ng-app="my-app">
+<div align="center">
+    <h2> Transaction Page</h2>
+</div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="transactionApp.js"></script>
+   
+
+<body ng-controller="transactionCntrl as transCntrl">
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td>
+                    <a href="login.html"> Login </a>
+                </td>
+                <td>
+                    <a href="goregistration.html"> Register </a>
+                </td>
+                <td>
+                    <a href="gohome.html"> Transaction </a>
+                </td>
+                <td>
+                    <a href="gobankStatementGeneration.html"> Statement </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td> Account No </td>
+                <td>
+                    <input type="text" name="accountNo" ng-model="transCntrl.transaction.accountNo" required/> </td>
+                <td>Account Name </td>
+                <td>
+                    <input type="text" name="accountName" ng-model="transCntrl.transaction.accountName" />
+                </td>
+                <td>Account Type </td>
+                <td>
+                    <select ng-model="transCntrl.transaction.accountType">
+                        <option value="Saving">Saving Account</option>
+                        <option value="Salary">Salary Account</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td> Transaction Type </td>
+                <td>
+                    <select ng-model="transCntrl.transaction.trasactionType">
+                        <option value="Debit">Debit</option>
+                        <option value="Credit">Credit</option>
+                    </select>
+                </td>
+                <td> Amount </td>
+                <td>
+                    <input type="text" name="amount" ng-model="transCntrl.transaction.amount" required/> </td>
+                <td> Transaction Date </td>
+                <td>
+                    <input type="date" name="transactionDate" ng-model="transCntrl.transaction.transactionDate" required/> </td>
+            </tr>
+
+            <tr>
+                <td> Transaction Id </td>
+                <td>
+                    <input type="text" name="transactionId" ng-model="transCntrl.transaction.transactionId" /> </td>
+
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <input type="button" name="Submit" value="Submit" ng-click="transCntrl.transactionFn(transaction)" /> </td>
+                <td>
+                    <input type="button" name="Reset" value="Reset" ng-click="transCntrl.clearList()" /> </td>
+               
+            </tr>
+
+        </table>
+        </br>
+    </div>
+</body>
+
+</html>
