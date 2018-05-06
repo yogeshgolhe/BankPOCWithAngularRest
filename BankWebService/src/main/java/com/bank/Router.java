@@ -19,21 +19,21 @@ public class Router {
 	
 	@RequestMapping("/gohome.html")
 	public String homePage() {
-		System.out.println("inside index1");
-	return "transaction123.html";
+		System.out.println("inside homePage");
+	return "transactionPage.html";
 	}
 	
 	@RequestMapping("/goregistration.html")
 	public String registrationPage() {
 		System.out.println("inside registrationPage");
-	return "registration123.html";
+	return "registrationPage.html";
 	}
 	
 	
 	@RequestMapping("/gobankStatementGeneration.html")
 	public String bankStatementGeneration() {
-		System.out.println("inside registrationPage");
-	return "bankStatementGeneration123.html";
+		System.out.println("inside bankStatementGeneration");
+	return "bankStatementGenerationPage.html";
 	}
 
 
